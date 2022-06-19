@@ -1,0 +1,45 @@
+from typing import (
+    List,
+)
+from lintcode import (
+    Interval,
+)
+
+"""
+Definition of Interval:
+class Interval(object):
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+"""
+
+class Solution:
+    """
+    @param schedule: a list schedule of employees
+    @return: Return a list of finite intervals 
+    """
+    # [ [1,2],  ]
+    def employee_free_time(self, schedule: List[List[int]]) -> List[Interval]:
+        
+        rs, min_heap = [], []
+        for i in range(len(schedule)):
+            # (interval.start, empployee idx, index in interval)
+            heappush(min_heap, (schedule[i][0], i, 0))
+
+        max_end = min_heap[0].end
+        while min_heap:
+
+            # interval start time, employee index, index in interval
+            (start, eIdx, idx) = heappop(min_heap)
+            if start > max_end:
+                rs.append(Interval(max_end, start))
+                max_end = schedule[i][idx + 1]
+            
+            if idx + 1 < len(schedule[eIdx]):
+                idx += 2
+                heappush(min_heap, (schedule[i][idx], i, idx))
+            
+        return rs
+
+
+[[1,2,5,6],[1,3],[4,10]]
