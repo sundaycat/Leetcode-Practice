@@ -24,9 +24,9 @@ In a lot of problems, we are asked to reverse the links between a set of nodes o
 + [61. Rotate List][6]
 
 
-[1]: https://leetcode.com/problems/reverse-linked-list/
-[2]: https://leetcode.com/problems/reverse-linked-list-ii/
+[1]: https://leetcode.com/problems/reverse-linked-list
+[2]: https://leetcode.com/problems/reverse-linked-list-ii
 [3]: https://www.educative.io/courses/grokking-the-coding-interview/qVANqMonoB2
-[4]: https://leetcode.com/problems/reverse-nodes-in-k-group/
+[4]: https://leetcode.com/problems/reverse-nodes-in-k-group
 [5]: https://www.educative.io/courses/grokking-the-coding-interview/m2YYJJRP9KG
-[6]: https://leetcode.com/problems/rotate-list/
+[6]: https://leetcode.com/problems/rotate-list
