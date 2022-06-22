@@ -23,6 +23,8 @@ Cases that need to handle:
 + [Find the corrupt pair][6]
 + [41. First Missing Positive][7]
 + [Find the first k missing positive][8]
++ [1539. Kth Missing Positive Number][9]
+    + follow up: solution that less than O(N)
 
 
 [1]: https://leetcode.com/problems/missing-number
@@ -33,3 +35,4 @@ Cases that need to handle:
 [6]: https://www.educative.io/courses/grokking-the-coding-interview/N7Vw2GBQr6D
 [7]: https://leetcode.com/problems/first-missing-positive/
 [8]: https://www.educative.io/courses/grokking-the-coding-interview/g286M2Gk3YY
+[9]: https://leetcode.com/problems/kth-missing-positive-number/

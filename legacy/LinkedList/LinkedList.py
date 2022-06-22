@@ -1,4 +1,8 @@
-from LinkedList.ListNode import ListNode
+class ListNode(object):
+
+    def __init__(self, val):
+        self.next = None
+        self.val = val
 
 '''
 key points:
@@ -13,8 +17,8 @@ class LinkedList(object):
     def __init__(self, values):
 
         if len(values) > 0:
-            value = values[0]
-            self.node = ListNode(value)
+            val = values[0]
+            self.node = ListNode(val)
             self.head = self.node
             for i in values[1:]:
                 self.insert_nodes(i)
@@ -25,21 +29,21 @@ class LinkedList(object):
     def print_list(self):
         cur = self.head
         while cur is not None:
-            print(cur.value, end = ', ')
+            print(cur.val, end = ', ')
             cur = cur.next
         print()
 
     def print_start_end(self, start, end):
         while start is not end:
-            print(start.value, end=', ')
+            print(start.val, end=', ')
             start = start.next
         print()
 
-    def insert_nodes(self, value):
+    def insert_nodes(self, val):
         tail = self.get_tail(self.head)
-        tail.next = ListNode(value)
+        tail.next = ListNode(val)
 
-    # remove the nodes contained the target value.
+    # remove the nodes contained the target val.
     # the original linked list remain the same.
     def remove_nodes(self, head, target):
 
@@ -50,7 +54,7 @@ class LinkedList(object):
         # cur: use to determine whether or not the current node should be delete
         pre, cur = dummy, head
         while cur:
-            if cur.value == target:
+            if cur.val == target:
                 pre.next = cur.next
             else:
                 pre = cur
@@ -74,7 +78,7 @@ class LinkedList(object):
 
         return None
 
-    def search_by_value(self, head, value):
+    def search_by_value(self, head, val):
 
         if not head:
             return None
@@ -82,7 +86,7 @@ class LinkedList(object):
         current = head
         while head is not None:
 
-            if current.value == value:
+            if current.val == val:
                 return current
 
             current = current.next
@@ -109,7 +113,7 @@ class LinkedList(object):
         cur = dummy
         while idx1 and idx2:
 
-            if idx1.value < idx2.value:
+            if idx1.val < idx2.val:
                 cur.next = idx1
                 idx1 = idx1.next
             else:
@@ -201,7 +205,7 @@ class LinkedList(object):
         inner = mini = outer = dummy.next
         while outer:
             while inner.next:
-                if inner.next.value < mini.value:
+                if inner.next.val < mini.val:
                     # assign mini to next inner node
                     mini = inner.next
                     pre_mini = inner
@@ -233,7 +237,7 @@ class LinkedList(object):
 
             # if swap happens, set has_swap to True, otherwise set it to False
             has_swap = False
-            if j.value < start.value:
+            if j.val < start.val:
 
                 has_swap = self.swap(i, i.next, pre_j, j)
 
@@ -317,12 +321,12 @@ class LinkedList(object):
 
         return
 
-    # remove the node associated with target value, using recursion.
+    # remove the node associated with target val, using recursion.
     def remove_target(self, head, target):
         if not head:
             return head
 
-        if head.value == target:
+        if head.val == target:
             head = self.remove_target(head.next, target)
         else:
             head.next = self.remove_target(head.next, target)
@@ -338,7 +342,7 @@ class LinkedList(object):
         # outer loop go through the whole linked list
         while cur:
             # using inner loop instead of if-else to handle multiple-duplicate case like: 1-1-1-None
-            while cur.next and cur.next.value == cur.value:
+            while cur.next and cur.next.val == cur.val:
                 cur.next = cur.next.next
             cur = cur.next
 
@@ -353,9 +357,9 @@ class LinkedList(object):
         cur = dummy = ListNode(None)
         dummy.next = head
         while cur.next and cur.next.next:
-            if cur.next.value == cur.next.next.value:
-                cur_val = cur.next.value
-                while cur.next and cur.next.value == cur_val:
+            if cur.next.val == cur.next.next.val:
+                cur_val = cur.next.val
+                while cur.next and cur.next.val == cur_val:
                     cur.next = cur.next.next
             else:
                 cur = cur.next
@@ -474,7 +478,7 @@ values = [1]
 list8 = LinkedList(values)
 list8.print_list()
 x = list8.find_middle()
-print(x.value)
+print(x.val)
 
 
 values = [5,6,8,6,3,2]

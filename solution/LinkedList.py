@@ -17,14 +17,17 @@ class LinkedList(object):
         else:
             return None
 
+    def print(self, head):
 
-    def print_list(self):
-        
-        cur = self.head
+        cur, prefix, rs = head, '', ''
         while cur is not None:
-            print(cur.val, end = ', ')
+            
+            rs += prefix + str(cur.val)
             cur = cur.next
-        print()
+
+            prefix = ', '
+            
+        print(rs)
     
     def insert_nodes(self, val):
 
