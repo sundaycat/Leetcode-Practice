@@ -1,3 +1,7 @@
+'''
+Time complexity:
+C(n, 1) + C(n, 2) + ... + C(n, n) =  2^n, 每一层 C(n, level).
+'''
 def subsets(nums):
 
     res = []

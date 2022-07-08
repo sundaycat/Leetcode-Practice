@@ -4,6 +4,8 @@ def generateParenthesis(n):
     helper(res, [], 0, 0, n)
     return res
         
+#注意保持每一层的invariant, 比如某一层有2个左括号, 1个右括号. 在递归结束再返回这一层时, valid_str应该维持不便, 维持这一层的invariant.
+# 
 def helper(res, valid_str, left, right, n):
 
     # base case
@@ -13,7 +15,7 @@ def helper(res, valid_str, left, right, n):
     
     # rescurive rule
     if left < n: #左括号不能大于括号总数
-        valid_str.append('(')
+        valid_str.append('(') 
         helper(res, valid_str, left + 1, right, n)
         valid_str.pop()
 

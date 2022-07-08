@@ -27,5 +27,5 @@ def helper(digits, index, dict, comb_str, res):
         comb_str.pop()
 
 
-x = letter_combination('23')
+x = letter_combination('234')
 print(x)

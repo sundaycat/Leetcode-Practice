@@ -6,9 +6,10 @@ In a lot of problems, we are asked to reverse the links between a set of nodes o
 + **key point**: 
     + always save the link before cut it off.
     + create dummpy pre node to avoid corner cases.
-    >
-        pre     cur     =>
-        None -> head
+        >
+            pre     cur     =>
+            None -> head
+    + carefully hanlde the indice while alternating / rotating the list.
 
 ### Problem set 1
 + [206. Reverse Linked List][1]

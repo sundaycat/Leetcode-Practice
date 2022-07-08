@@ -2,8 +2,11 @@
 This is a variation of the standard problem: “Counting the number of connected components in an undirected graph”.
 Reference: https://www.geeksforgeeks.org/find-number-of-islands/
 """
-class Graph(object):
 
+class Graph(object):
+    '''
+    SOLUTION 1
+    '''
     def __init__(self, row, col, graph):
 
             self.row = row
@@ -49,18 +52,66 @@ class Graph(object):
         return numOfIslands
 
 
+    '''
+    SOLUTION 2
+    '''
+    def num_of_islands(self, grid):
+
+        count = 0
+        for r in range(len(grid)):
+            for c in range(len(grid[0])):
+
+                if grid[r][c] == '0':
+                    continue
+                
+                self.helper(grid, r, c)
+                count += 1
+
+        return count
 
 
-graph = [[1, 1, 0, 0, 0],
-         [0, 1, 0, 0, 1],
-         [1, 0, 0, 1, 1],
-         [0, 0, 0, 0, 0],
-         [1, 0, 1, 0, 1]]
+    def helper(self, grid, r, c):
+
+        # border check, to make sure we won't walk off the border
+        if r < 0 or r >= len(grid) or c < 0 or c >= len(grid[0]):
+            return
+
+        # base case, if the grid cell is 0, return
+        if grid[r][c] == '0':
+            return
+
+        # set the grid cell to 0
+        grid[r][c] = '0'
+
+        # recursive check through the four directions
+        self.helper(grid, r - 1, c)
+        self.helper(grid, r, c + 1)
+        self.helper(grid, r + 1, c)
+        self.helper(grid, r, c - 1)
+
+
+graph = \
+[
+    [1, 1, 0, 0, 0],
+    [0, 1, 0, 0, 1],
+    [1, 0, 0, 1, 1],
+    [0, 0, 0, 0, 0],
+    [1, 0, 1, 0, 1]
+]
 
 row = len(graph)
 col = len(graph[0])
 
 g = Graph(row, col, graph)
-
-print("Number of islands is:")
 print(g.countIslands())
+
+
+grid = \
+[
+    ['1', '1', '0', '0', '0'],
+    ['0', '1', '0', '0', '1'],
+    ['1', '0', '0', '1', '1'],
+    ['0', '0', '0', '0', '0'],
+    ['1', '0', '1', '0', '1']
+]
+print(g.num_of_islands(grid))

@@ -1,49 +1,78 @@
+#
+# @lc app=leetcode id=130 lang=python3
+#
+# [130] Surrounded Regions
+#
 
-def surrounded_regions(grid):
+# @lc code=start
+from typing import List
 
-    # Turn the 'O's that connect to border to a special symbol '#'
-    r_border = [0, len(grid) - 1]
-    c_border = [0, len(grid[0]) - 1]
-    for r in range(len(grid)):
-        for c in range(len(grid[0])):
-            if grid[r][c] == 'X':
-                continue
-            
-            if r in r_border or c in c_border:
-                helper(grid, r, c)
+
+class Solution:
+
+    '''
+    1. Turn the 'O's that connect to border to a special symbol '#' via DFS
+    2. iterate through board and flip the remaing 'O' to 'X'
+    3. restore the '#' to 'O'
+    '''
+    def solve(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+
+        # 1. Turn the 'O's that connect to border to a special symbol '#'
+        rBorder = [0, len(board) - 1]
+        cBorder = [0, len(board[0]) - 1]
+        for r in range(len(board)):
+            for c in range(len(board[0])):
     
-    for r in range(len(grid)):
-        for c in range(len(grid[0])):
-            if grid[r][c] == 'O':
-                grid[r][c] = 'X'
+                if board[r][c] == 'X':
+                    continue
+                
+                if r in rBorder or c in cBorder:
+                    self.helper(board, r, c)
+
+        # 2. iterate through board and flip the remaing 'O' to 'X'
+        # 3. restore the '#' to 'O'
+        for r in range(len(board)):
+            for c in range(len(board[0])):    
+                if board[r][c] == 'O':
+                    board[r][c] = 'X'
+                
+                if board[r][c] == '#':
+                    board[r][c] = 'O'
+
+
+    def helper(self, board, r, c):
+
+        # border check, to make sure we won't walk off the border
+        if r < 0 or r >= len(board) or c < 0 or c >= len(board[0]):
+            return
+        
+        # base case, stop if we encounter symbol 'X' or '#', avoidng infinity loop
+        if board[r][c] == 'X' or board[r][c] == '#':
+            return
+        
+        board[r][c] = '#'
+        
+        # recursive check through the four directions
+        self.helper(board, r - 1, c)
+        self.helper(board, r, c + 1)
+        self.helper(board, r + 1, c)
+        self.helper(board, r, c - 1)
+
             
-            if grid[r][c] == 'I':
-                grid[r][c] = 'O'
+# @lc code=end
 
-def helper(grid, r, c):
+board = \
+[
+    ["X","X","X","X","X"],
+    ["X","X","O","O","X"],
+    ["X","O","X","O","X"],
+    ["X","O","O","X","X"]
+]
 
-    # border check, to make sure we won't walk off the border
-    if r < 0 or r >= len(grid) or c < 0 or c >= len(grid[0]):
-        return
-
-    # base case, stop if we encounter symbol 'X' or '#'
-    if grid[r][c] == 'X' or grid[r][c] == '#':
-        return
-    
-    grid[r][c] = '#'
-
-    # recursive check through the four directions
-    helper(grid, r - 1, c)
-    helper(grid, r, c + 1)
-    helper(grid, r + 1, c)
-    helper(grid, r, c - 1)
- 
-
-
-grid = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
-for i in grid:
-    print(i)
-print()
-surrounded_regions(grid)
-for i in grid:
-    print(i)
+s = Solution()
+s.solve(board)
+for r in range(len(board)):
+    print(board[r])

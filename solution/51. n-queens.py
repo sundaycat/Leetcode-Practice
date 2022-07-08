@@ -1,5 +1,8 @@
 '''
 https://www.youtube.com/watch?v=Ph95IHmRp5M
+https://www.youtube.com/watch?v=xFv_Hl4B83A
+
+state space tree. Each queen represent one node, and it has n choice, where n is the number of the columns
 '''
 def solve_N_queens(n):
 
@@ -42,6 +45,6 @@ def construct(board):
         output.append(''.join(board[row]))
     return output
 
-x = solve_N_queens(4)
+x = solve_N_queens(5)
 for row in x:
     print(row)
