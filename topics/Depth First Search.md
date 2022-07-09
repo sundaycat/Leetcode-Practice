@@ -37,11 +37,10 @@ Groking the interview pattern problem list
 + [112. Path Sum][20]
 + [113. Path Sum II][21]
 + [129. Sum Root to Leaf Numbers][22]
-+ [124. Binary Tree Maximum Path Sum][23] (Need more practice)
 + [1430. path with given sequence][24]
 + [437. Path Sum III][25]
 + [543. Diameter of Binary Tree][26]
-+ [124. Binary Tree Maximum Path Sum][27]
++ [124. Binary Tree Maximum Path Sum][23] (Need more practice)
 ---
 
 ## Reference
