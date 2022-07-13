@@ -29,6 +29,7 @@ Different conditions where to start and stop searching. somtimes we need visited
 + [79. Word search][12]
     + follow up: could you use search pruning to make your solution faster with a larger(DP记录每一个cell的位置和对应的word index)
 + [302. Smallest rectangle enclosing black pixels][13]
++ [329. Longest Increasing Path in a Matrix][29]
 
 ### problem set 4
 
@@ -41,6 +42,7 @@ Groking the interview pattern problem list
 + [437. Path Sum III][25]
 + [543. Diameter of Binary Tree][26]
 + [124. Binary Tree Maximum Path Sum][23] (Need more practice)
++ [366. Find leaves of binary tree][28] (count the height bottom up)
 ---
 
 ## Reference
@@ -78,3 +80,5 @@ Groking the interview pattern problem list
 [25]: https://leetcode.com/problems/path-sum-iii/
 [26]: https://leetcode.com/problems/diameter-of-binary-tree/
 [27]: https://leetcode.com/problems/binary-tree-maximum-path-sum/
+[28]: https://leetcode.com/problems/find-leaves-of-binary-tree/
+[29]: https://leetcode.com/problems/longest-increasing-path-in-a-matrix/

@@ -105,6 +105,10 @@ def fib_3(n):
 
 #### problems list: with constrains
 
+
+#### problem list 4
++ [329. Longest Increasing Path in a Matrix][9]
+
 ### reference
 [DP View of Bellman-Ford Algorithm][1]
 
@@ -118,3 +122,4 @@ def fib_3(n):
 [6]: https://leetcode.com/problems/longest-common-subsequence
 [7]: https://leetcode.com/problems/regular-expression-matching
 [8]: https://leetcode.com/problems/longest-palindromic-substring
+[9]: https://leetcode.com/problems/longest-increasing-path-in-a-matrix/

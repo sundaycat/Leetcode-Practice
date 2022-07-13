@@ -5,14 +5,14 @@ Q295: Find median from data stream
 
 Solution 1: O(nlogn)
 We only need a consistent way to access the median elements. Keeping the entire input sorted is not a requirement.
-1. Use a max heap to store the smaller half of th data and a min heap to store the larger half of the data
+1. Use a max heap to store the smaller half of the data and a min heap to store the larger half of the data
 2. Balance the heap sizes. Max-heap is allowed to store, at worst, one more element more than the min-heap. 
     Q: How to decide in which half we should put the new input
     2.1 if the max-heap is empty, then push the new input into it
     2.2 if the max-heap is not empty, then decide in which heap we should put the new element
-        2.2.1 Two heap are the same size, then
+        2.2.1 Two heaps are the same size, then
             1. if the input is less than the smallest element of the larger half, then it belongs to the smaller half.
-               push it directly into smaller half.
+               push it directly into smaller half(MaxHeap)
             2. if the input is larger than the top of larger half, then it belongs to the larger half. In order to maintain
                the balance property. Move the larger half's smallest element to the smaller half and then push the new 
                input to larger half.
