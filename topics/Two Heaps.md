@@ -12,7 +12,14 @@ To separate a given a set of elements into two parts, we are interested in knowi
 ### problem set 2
 heap related problems
 
+---
+
+## Reference:
+
+[Heap problem list][5]
+
 [1]: https://leetcode.com/problems/find-median-from-data-stream/
 [2]: https://leetcode.com/problems/sliding-window-median/
 [3]: https://leetcode.com/problems/ipo/
 [4]: https://leetcode.com/problems/find-right-interval/
+[5]: https://leetcode.com/discuss/general-discussion/1127238/master-heap-understanding-4-patterns-where-heap-data-structure-is-used

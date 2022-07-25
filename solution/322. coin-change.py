@@ -70,4 +70,5 @@ class Solution:
 
 x = Solution()
 # rs = x.coinChange([1, 2, 5], 2)
-print(x.coinChange_2([1,2,5], 11))
+# print(x.coinChange_2([1,2,5], 11))
+print(x.coinChange([2], 3))

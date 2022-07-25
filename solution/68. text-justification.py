@@ -1,5 +1,10 @@
-from typing import List
+#
+# @lc app=leetcode id=68 lang=python3
+#
+# [68] Text Justification
+#
 
+# @lc code=start
 '''
 Leetcode expects us to use greedy algorithm algoritm. Here I am using the dynamic programming
 to solove the problem. The final result is a bit different from the one given by greedy.
@@ -12,6 +17,7 @@ solution:
 1. memoized DP algorithm
 2. buttom up DP algorithm
 '''
+from typing import List
 
 class Solution:
 
@@ -61,13 +67,14 @@ class Solution:
             
             start = parent[start]
 
+# @lc code=end
 
-words = ["This", "is", "an", "example", "of", "text", "justification."]
-words = ["What","must","be","acknowledgment","shall","be"]
+# words = ["This", "is", "an", "example", "of", "text", "justification."]
+# words = ["What","must","be","acknowledgment","shall","be"]
 words = ["Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"]
-words = ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog."]
-words = ["Tushar", "Roy", "likes", "to", "code"]
-maxWidth = 10
+# words = ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog."]
+# words = ["Tushar", "Roy", "likes", "to", "code"]
+maxWidth = 20
 
 s = Solution()
 parent = s.fullJustify(words, maxWidth)
