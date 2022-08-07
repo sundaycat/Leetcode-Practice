@@ -21,6 +21,10 @@ def binary_search(array, target):
 
     return None
 
+nums = [1,2,4,5]
+rs = binary_search(nums, 3)
+print(rs)
+
 # Q2: Apply binary search in 2D space
 def binary_search_2d(matrix, target):
     if matrix is None or len(matrix) == 0:
@@ -150,7 +154,7 @@ def k_closest(arr, k, target):
         closest = left if abs(arr[left] - target) < abs(arr[right] - target) else right
 
     # check the neighbor of closest k-1 times to pick the k closest elements
-    # Under the following condition, we make left = left + 1
+    # Under the following condition, we make left = left - 1
     # 1. closest element is at the right most of the array
     # 2. right element is closer to target than the left element
     left, right = closest, closest
