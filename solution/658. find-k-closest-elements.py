@@ -15,10 +15,12 @@
 
 Time Complexity: O(logN + K)
 '''
+from heapq import *
 from typing import List
 
 class Solution:
 
+    # Solution 1
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
 
         # find the position of the right most closest element
@@ -47,7 +49,38 @@ class Solution:
             k -= 1
 
         return arr[lt : rt + 1]
+
+    # Solution 2: use min heap to pick up the k elements.
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        
+        lt, rt = 0, len(arr) - 1
+        while lt < rt - 1:
+
+            mid = (lt + rt) // 2
+            if arr[mid] <= x:
+                lt = mid
+            else:
+                rt = mid
+        
+        cloest = lt if abs(arr[lt] - x) <= abs(arr[rt] - x) else rt
+
+        low, high = cloest - k + 1, cloest + k - 1
+
+        low = max(0, low)
+        high = min(high, len(arr) - 1)
+
+        minHeap = []
+        for i in range(low, high + 1):
+            heappush(minHeap, (abs(arr[i] - x), arr[i]))
+        
+        rs = []
+        for _ in range(k):
+            diff, val = heappop(minHeap)
+            rs.append(val)
             
+        rs.sort()
+        return rs
+
 # @lc code=end
 
 arr = [1,2,4,5,6]
@@ -58,8 +91,17 @@ arr = [1,1,1,10,10,10,11]
 k = 2
 x = 12
 
+# ans = [1, 3]
 arr = [0,0,0,1,3,5,6,7,8,8]
 k = 2
 x = 2
+
+# ans = [1,2,3,4]
+arr = [1,2,3,4,5]
+k = 4
+x = -1
+
 rs = Solution().findClosestElements(arr, k, x)
+
+
 print(rs)

@@ -43,11 +43,10 @@ Binary search search in a sorted sequence for a target. It partition the sequenc
 + [Search Bitonic Array][11]
 + [033. Search in Rotated Sorted Array][1] - no duplicates
 + [081. Search in Rotated Sorted Array II][12] - with duplicates
-+ [Rotation Count][14]
++ [Rotation Count][14] - decide which part is sorted. 
     + [153. Find Minimum in Rotated Sorted Array][17] - no duplicate
     + [154. Find Minimum in Rotated Sorted Array II][18] - with duplicates
 
-### problem set 3
 
 
 [1]: https://leetcode.com/problems/search-in-rotated-sorted-array/

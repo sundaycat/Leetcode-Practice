@@ -8,7 +8,9 @@
 from typing import List
 
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
+
+    # solution 1: cylic sort.
+    def missingNumber1(self, nums: List[int]) -> int:
         
         i = 0
         while i < len(nums):
@@ -31,7 +33,28 @@ class Solution:
                 return i
         
         return -1
-            
+
+
+    '''
+    Solution 2: bitwise xor. N distinct number range from  [0, n], Ex: [3, 0 1] is 3 number in the range 0,1,2,3.  => (1 ^ 2 ^ 3) ^ (3 ^ 0 ^ 1) = 2
+    '''
+    def missingNumber(self, nums: List[int]) -> int:
+    
+        # 0 ~ n
+        n = len(nums) + 1
+        
+        # x1 represents XOR of all values from 1 to n
+        x1 = 1
+        for i in range(2, n):
+            x1 = x1 ^ i
+        
+        # x2 represents XOR of all values in nums
+        x2 = nums[0]
+        for i in range(1, len(nums)):
+            x2 = x2 ^ nums[i]
+
+        # missing number is the XOR of x1 and x2
+        return x1 ^ x2
 
 # @lc code=end
 

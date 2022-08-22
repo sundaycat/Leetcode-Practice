@@ -22,8 +22,8 @@ Usually involves the realionship of subarray and main array and require the time
 ### Problem set 2
 + [567. Permutation in String][8] - hashmap, pattern count, match count
     + [438. Find All Anagrams in a String][9]
-+ [76. Minimum Window Substring][10]
-+ [30. Substring with Concatenation of All Words][11]
++ [076. Minimum Window Substring][10]
++ [030. Substring with Concatenation of All Words][11]
 
 
 ### Reference
